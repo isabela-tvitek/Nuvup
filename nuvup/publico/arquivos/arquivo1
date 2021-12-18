@@ -1,0 +1,122 @@
+<?php
+
+namespace Modelo;
+
+use \PDO;
+use \Framework\DW3BancoDeDados;
+
+class Comentario extends Modelo
+{
+    const BUSCAR_TODOS = 'SELECT comentario, usuario_id, upload_id, id FROM comentarios ORDER BY id LIMIT ? OFFSET ?';
+    const BUSCAR_ID = 'SELECT * FROM comentarios WHERE id = ? LIMIT 1';
+    const INSERIR = 'INSERT INTO comentarios(comentario, usuario_id, upload_id) VALUES (?, ?, ?)';
+    const DELETAR = 'DELETE FROM comentarios WHERE id = ?';
+    private $id;
+    private $comentario;
+
+    public function __construct(
+        $comentario,
+        $usuarioId,
+        $uploadId,
+        $id = null
+    ) {
+        $this->comentario = $comentario;
+        $this->usuarioId = $usuarioId;
+        $this->uploadId = $uploadId;
+        $this->id = $id;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getComentario()
+    {
+        return $this->comentario;
+    }
+
+    public function getUsuarioId()
+    {
+        return $this->usuarioId;
+    }
+
+    public function getUploadId()
+    {
+        return $this->uploadId;
+    }
+
+    public function salvar()
+    {
+        $this->inserir();
+    }
+
+    private function inserir()
+    {
+        DW3BancoDeDados::getPdo()->beginTransaction();
+        $comando = DW3BancoDeDados::prepare(self::INSERIR);
+        $comando->bindValue(1, $this->comentario, PDO::PARAM_STR);
+        $comando->bindValue(2, $this->usuarioId, PDO::PARAM_STR);
+        $comando->bindValue(3, $this->uploadId, PDO::PARAM_STR);
+        $comando->execute();
+        $this->id = DW3BancoDeDados::getPdo()->lastInsertId();
+        DW3BancoDeDados::getPdo()->commit();
+    }
+
+    public static function buscarId($id)
+    {
+        $comando = DW3BancoDeDados::prepare(self::BUSCAR_ID);
+        $comando->bindValue(1, $id, PDO::PARAM_INT);
+        $comando->execute();
+        $comentarios = null;
+        $registro = $comando->fetch();
+        if ($registro) {
+            $comentarios = new Comentario(
+                $registro['comentario'],
+                $registro['usuario_id'],
+                $registro['upload_id'],
+                $registro['id']
+            );
+        }
+        return $comentarios;
+    }
+
+    public static function buscarTodos($limit = 9999999, $offset = 0)
+    {
+        $comando = DW3BancoDeDados::prepare(self::BUSCAR_TODOS);
+        $comando->bindValue(1, $limit, PDO::PARAM_INT);
+        $comando->bindValue(2, $offset, PDO::PARAM_INT);
+        $comando->execute();
+        $registros = $comando->fetchAll();
+        $comentarios = [];
+        foreach ($registros as $registro) {
+            $usuario = new Usuario(
+                $registro['nome'],
+                null,
+                $registro['email'],
+                $registro['id'],
+            );
+            $upload = new Upload(
+                $registro['nomeArquivo'],
+                $registro['data'],
+                $registro['descricao'],
+                $registro['usuario_id'],
+                $registro['id']
+            );
+            $comentarios[] = new Comentario(
+                $registro['comentario'],
+                $usuario['id'],
+                $upload['id'],
+                $registro['id']
+            );
+        }
+        return $comentarios;
+    }
+
+    public static function destruir($id)
+    {
+        $comando = DW3BancoDeDados::prepare(self::DELETAR);
+        $comando->bindValue(1, $id, PDO::PARAM_INT);
+        $comando->execute();
+    }
+}

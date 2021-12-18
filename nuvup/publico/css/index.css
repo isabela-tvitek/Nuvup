@@ -1,0 +1,135 @@
+.menu-lateral, main {
+    display: inline-block;
+  }
+  
+  .menu-lateral {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #008767;
+    overflow-x: hidden;
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+  
+  }
+  nav img {
+    margin: 0 0 10px 46px;
+    width: 9rem;
+    height: 5rem;
+  }
+  
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  ul li {
+    padding: 1rem 0 1rem 0.5rem;
+    transition: 0.2s;
+  }
+  
+  ul li:hover {
+    background-color: #007255;
+  }
+  
+  li.formulario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  ul li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+  }
+  
+  #pesquisa input {
+    font-size: 1rem;
+    background: none;
+    color: white;
+    border: none;   
+  }
+  
+  #pesquisa input::placeholder {
+    color: white;
+  }
+  
+  #pesquisa button {
+    background: none;
+    border: none;
+    padding: 0.2rem 0.5rem;
+  }
+  
+  #pesquisa button:hover {
+    cursor: pointer;
+  }
+  
+
+div#corpo {
+    background-color: #f6f1f8;
+    width: 95%;
+    height: 36rem;
+    margin-left: 16rem;
+    color: #008767;
+    border-radius: 3px;
+}
+
+table {
+    margin: 10px 2px 2px 12px;
+}
+
+tr {
+    font-size: 20px;
+    text-align: left;
+}
+
+th#nome {
+    width: 20rem;
+    height: 2rem;
+    border-bottom: 1px solid;
+}
+
+th#data {
+    width: 10rem;
+    height: 2rem;
+    border-bottom: 1px solid;
+}
+
+th#desc {
+    width: 20rem;
+    height: 2rem;
+    border-bottom: 1px solid;
+}
+
+th#seta {
+    width: 2rem;
+    height: 1.3rem;
+}
+
+th#coment {
+    width: 2rem;
+    height: 1.3rem;
+}
+
+tr img {
+    width: 26px;
+    height: 26px;
+}
+
+td {
+    font-size: 15px;
+    text-align: left;
+    color: grey;
+}
+
+p{
+  text-align: center;
+  margin-top: 20px;
+  background: #f6f1f8;
+}

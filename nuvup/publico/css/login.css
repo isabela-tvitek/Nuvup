@@ -1,0 +1,48 @@
+
+div.singin {
+    background-color: #f6f1f8;
+    width: 24rem;
+    height: 30rem;
+    margin: 0 auto;
+    color: #008767;
+    border-radius: 5px;
+}
+
+div.singin h1 {
+    margin: 0;
+    padding: 1rem 0 0 0;
+    color: #6C7573;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+form {
+    margin: 20% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 13rem;
+}
+
+form input {
+    background: none;
+    width: 80%;
+    height: 2rem;
+    border: none;
+    border-bottom: 1px solid #008767;
+}
+
+form button {
+    background-color: white;
+    border: 1px solid #008767;
+    border-radius: 3px;
+    color: #008767;
+    width: 80%;
+    height: 2.5rem;
+}
+
+form a {
+    text-decoration: none;
+    color: #008767;
+}

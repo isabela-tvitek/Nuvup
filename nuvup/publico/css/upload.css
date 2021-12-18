@@ -1,0 +1,153 @@
+.menu-lateral, main {
+    display: inline-block;
+  }
+  
+  .menu-lateral {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #008767;
+    overflow-x: hidden;
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+  
+  }
+  nav img {
+    margin: 0 0 10px 46px;
+    width: 9rem;
+    height: 5rem;
+  }
+  
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  ul li {
+    padding: 1rem 0 1rem 0.5rem;
+    transition: 0.2s;
+  }
+  
+  ul li:hover {
+    background-color: #007255;
+  }
+  
+  li.formulario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  ul li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+  }
+  
+  #pesquisa input {
+    font-size: 1rem;
+    background: none;
+    color: white;
+    border: none;   
+  }
+  
+  #pesquisa input::placeholder {
+    color: white;
+  }
+  
+  #pesquisa button {
+    background: none;
+    border: none;
+    padding: 0.2rem 0.5rem;
+  }
+  
+  #pesquisa button:hover {
+    cursor: pointer;
+  }
+  
+div.formulario{
+    background-color: #f6f1f8;
+    width: 90%;
+    height: 35rem;
+    margin: 0 0 0 17rem;
+    color: #008767;
+    border-radius: 3px;
+}
+
+div.formulario h1{
+    color: #6C7573;
+    text-align: left;
+    font-size: 2rem;
+    padding-top: 2rem;
+    font-family: serif;
+    margin-left: 1.5rem;
+}
+
+div.formulario .btn{
+    background-color: white;
+    border: 1px solid #008767;
+    border-radius: 3px;
+    color: #008767;
+    width: 8rem;
+}
+
+form input{
+    background: none;
+}
+
+form input#nome-arquivo{
+    width: 20rem;
+    height: 1.5rem;
+    margin: 0 0 0 35px;
+    border: 1px solid #008767;
+    border-radius: 3px;
+    color: #008767;
+}
+
+form input#data{
+    width: 20rem;
+    height: 1.5rem;
+    margin: 0 0 0 35px;
+    border: 1px solid #008767;
+    border-radius: 3px;
+    color: #008767;
+}
+
+form h2{
+    margin-left: 1.6rem;
+    font-size: 25px;
+}
+
+div#info-arquivo input#descricao{
+    height: 15rem;
+    width: 43rem;
+    border: 1px solid;
+    border-radius: 3px;
+    margin-left: 2rem;
+}
+
+/* div#submeter input#upload{
+    display: none;
+} */
+
+#submeter {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 1.8rem 0;
+}
+
+#submeter button a{
+    text-decoration: none;
+    color: #3ab598;
+}
+
+p{
+  text-align: center;
+  margin-top: 20px;
+  background: #f6f1f8;
+}
